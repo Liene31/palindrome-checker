@@ -1,0 +1,62 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #aa57cc;
+  font-family: "Poppins", sans-serif;
+}
+
+main {
+  background-color: #ffffff;
+  border-radius: 6px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+  gap: 1.3em;
+  padding: 1.25em 1.88em 2.19em;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+p {
+  font-size: 1.125rem;
+  color: #474747;
+  line-height: 1.5;
+}
+
+h1 {
+  font-weight: 500;
+  font-size: 1.68rem;
+}
+
+input,
+button {
+  padding: 0.76em;
+  border-radius: 6px;
+  border: 1px solid #999999;
+  font-family: inherit;
+  font-size: 1.19rem; /*19px*/
+}
+
+input {
+  color: #999999;
+}
+
+button {
+  background-color: #c389db; /*Need to change this */
+  border: none;
+  font-size: 1.06em;
+  color: #ffffff;
+}
