@@ -1,6 +1,15 @@
 const checkBtn = document.getElementById("check-btn");
-const inputValue = document.getElementById("input-value");
+const inputField = document.getElementById("input-field");
 const answerField = document.getElementById("answer-field");
+checkBtn.disabled = true;
+
+//Listens for the input
+//Toggles Btn true/false depending on if there is an input or not
+inputField.addEventListener("input", function () {
+  inputField.value.trim() === ""
+    ? (checkBtn.disabled = true)
+    : (checkBtn.disabled = false);
+});
 
 function isPalindrome(word) {
   const phrase = word.replace(/\s+/g, "").toLowerCase();
@@ -12,7 +21,7 @@ function displayPalindromeResult(word) {
   const para = document.createElement("p");
   const span = document.createElement("span");
   const result = isPalindrome(word);
-  document.getElementById("answer-field").textContent = "";
+  answerField.textContent = "";
   span.className = "text-highlight";
   span.textContent = `'${word}'`;
 
@@ -22,11 +31,12 @@ function displayPalindromeResult(word) {
     ? para.append(" is a palindrome!")
     : para.append(" isn't a palindrome!");
 
-  document.getElementById("answer-field").append(para);
+  answerField.append(para);
 }
 
+// Handles Btn click
 checkBtn.addEventListener("click", () => {
-  const phrase = inputValue.value;
-  displayPalindromeResult(phrase);
-  inputValue.value = "";
+  displayPalindromeResult(inputField.value);
+  inputField.value = "";
+  checkBtn.disabled = true;
 });
