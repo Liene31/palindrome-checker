@@ -60,3 +60,12 @@ button {
   font-size: 1.06em;
   color: #ffffff;
 }
+
+.answer-field {
+  color: black;
+  align-self: center;
+}
+
+.text-highlight {
+  color: #c389db;
+}
