@@ -1,6 +1,3 @@
-//button is non-active (different color, without pointer)
-//Only when text added, it becomes active(color + pointer)
-
 const checkBtn = document.getElementById("check-btn");
 const inputValue = document.getElementById("input-value");
 const answerField = document.getElementById("answer-field");
@@ -15,16 +12,31 @@ function isPalindrome(word) {
   return phrase === reversedPhrase;
 }
 
-checkBtn.addEventListener("click", () => {
+function displayPalindromeResult(word) {
   const para = document.createElement("p");
   const span = document.createElement("span");
-  const phrase = inputValue.value;
-
+  document.getElementById("answer-field").textContent = "";
   span.className = "text-highlight";
-  span.textContent = `'${phrase}'`;
-  para.textContent = "Yes, ";
+  span.textContent = `'${word}'`;
+  if (isPalindrome(word)) {
+    para.textContent = "Yes, ";
+  } else {
+    para.textContent = "No, ";
+  }
+
   para.appendChild(span);
-  para.append(" is a palindrome!");
+
+  if (isPalindrome(word)) {
+    para.append(" is a palindrome!");
+  } else {
+    para.append(" isn't a palindrome!");
+  }
+
   document.getElementById("answer-field").append(para);
-  console.log(isPalindrome(phrase));
+}
+
+checkBtn.addEventListener("click", () => {
+  const phrase = inputValue.value;
+  displayPalindromeResult(phrase);
+  inputValue.value = "";
 });
