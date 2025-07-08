@@ -15,22 +15,16 @@ function isPalindrome(word) {
 function displayPalindromeResult(word) {
   const para = document.createElement("p");
   const span = document.createElement("span");
+  const result = isPalindrome(word);
   document.getElementById("answer-field").textContent = "";
   span.className = "text-highlight";
   span.textContent = `'${word}'`;
-  if (isPalindrome(word)) {
-    para.textContent = "Yes, ";
-  } else {
-    para.textContent = "No, ";
-  }
 
+  result ? (para.textContent = "Yes, ") : (para.textContent = "No, ");
   para.appendChild(span);
-
-  if (isPalindrome(word)) {
-    para.append(" is a palindrome!");
-  } else {
-    para.append(" isn't a palindrome!");
-  }
+  result
+    ? para.append(" is a palindrome!")
+    : para.append(" isn't a palindrome!");
 
   document.getElementById("answer-field").append(para);
 }
