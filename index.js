@@ -4,11 +4,7 @@ const answerField = document.getElementById("answer-field");
 
 function isPalindrome(word) {
   const phrase = word.replace(/\s+/g, "").toLowerCase();
-  let reversedPhrase = "";
-  for (let i = phrase.length - 1; i >= 0; i--) {
-    reversedPhrase += phrase[i];
-  }
-
+  const reversedPhrase = phrase.split("").reverse().join("");
   return phrase === reversedPhrase;
 }
 
